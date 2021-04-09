@@ -27,6 +27,10 @@ class MainController extends AbstractController
      */
     public function upload(Request $request, ValidatorInterface $validator): Response
     {
+        if (!file_exists("../public/tmp")) {
+            mkdir("../public/tmp");
+        }
+
         $animals = [];
         $file = new CustomFile($request->files->get("file"));
         $errors = $validator->validate($file);
