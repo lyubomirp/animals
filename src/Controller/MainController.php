@@ -47,6 +47,17 @@ class MainController extends AbstractController
 
         $content = json_decode(file_get_contents("../public/tmp/$filename"));
 
+        if (!$content) {
+            unlink("../public/tmp/$filename");
+
+            $response = new Response();
+
+            $response->setStatusCode(403);
+            $response->setContent("Couldn't parse JSON (possibly malformed)");
+
+            return $response;
+        }
+
         foreach ($content as $animal) {
             if (!isset($animal->species)) {
                 continue;
@@ -64,6 +75,7 @@ class MainController extends AbstractController
             array_push($animals, $curr_anim);
         }
 
+        unlink("../public/tmp/$filename");
         return $this->json($animals);
     }
 }
