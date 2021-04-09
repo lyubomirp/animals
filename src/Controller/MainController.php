@@ -72,10 +72,12 @@ class MainController extends AbstractController
                 $animal->DOB,
                 $animal->image
             );
+
             array_push($animals, $curr_anim);
         }
 
         unlink("../public/tmp/$filename");
-        return $this->json($animals);
+
+        return $this->render("partial/slider.html.twig", ["animals" => $animals]);
     }
 }

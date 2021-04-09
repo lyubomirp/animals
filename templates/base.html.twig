@@ -6,11 +6,9 @@
         <link rel="stylesheet" type="text/css" href="{{ "css/styles.css" }}">
     </head>
     <body>
-        <div class="slideshow-container">
+        <div class="container main-container">
 
         </div>
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
         <div class="container">
             <input type="file" id="file-selector" name="file-selector">
             <input type="submit" value="Submit" onclick="submitForm('{{ path("upload") }}')">

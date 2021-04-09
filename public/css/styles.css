@@ -39,8 +39,9 @@ ul {
 .prev, .next {
     cursor: pointer;
     position: absolute;
-    top: 20%;
+    top: 50%;
     width: auto;
+    margin-top: -30px;
     padding: 16px;
     color: #888;
     font-weight: bold;
@@ -80,7 +81,3 @@ ul {
 .active, .dot:hover {
     background-color: #717171;
 }
-
-q {font-style: italic;}
-
-.author {color: cornflowerblue;}
